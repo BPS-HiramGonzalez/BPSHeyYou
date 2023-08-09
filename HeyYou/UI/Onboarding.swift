@@ -18,18 +18,18 @@ struct Onboarding: View {
                         .resizable()
                         .scaledToFill()
                         .ignoresSafeArea()
-                        .frame(width: geo.size.width, height: geo.size.height * 0.3)
+                        .frame(width: geo.size.width, height: geo.size.height * 0.2)
                     
                     
                     VStack(alignment: .center) {
                         Text("Hey You")
-                            .font(.custom("Montserrat-Medium", size: 50))
+                            .font(.custom("Montserrat-Medium", size: UIScreen.main.bounds.height > 700 ? UIScreen.main.bounds.height > 860 ? 50 : 48 : 45))
                             .bold()
-                            .padding(.top, 10)
-                            .padding(.bottom,1 )
+                            .padding(.top, UIScreen.main.bounds.height > 700 ? -5 : 0)
+                            .padding(.bottom, 1)
                             .tracking(3)
                         Text("Out With A Purpose.")
-                            .font(.custom("Montserrat-Semibold", size: 20))
+                            .font(.custom("Montserrat-Semibold", size: UIScreen.main.bounds.height > 700 ? 20: 15))
                             .tracking(1.5)
                         
                         VStack(alignment: .center) {
@@ -37,11 +37,11 @@ struct Onboarding: View {
                             Text("#HelloConnections")
                             Text("#Community")
                         }
-                        .padding(.vertical, 30)
-                        .font(.custom("Montserrat-Regular", size: 18))
+                        .padding(.vertical, UIScreen.main.bounds.height > 700 ? 35 : 20)
+                        .font(.custom("Montserrat-Regular", size: UIScreen.main.bounds.height > 700 ? UIScreen.main.bounds.height > 860 ? 20 : 18 : 15))
                         .multilineTextAlignment(.center)
                         .tracking(1.7)
-                        .frame(width: geo.size.width * 2 / 3)
+                        .frame(maxWidth: UIScreen.main.bounds.height > 700 ? geo.size.width * 2 / 3 : geo.size.width * 0.7)
                         
                         MainButton(text: "Create Account", isDisabled: false)
                             .padding(.bottom, 9)
@@ -67,10 +67,12 @@ struct Onboarding: View {
                                 .underline()
                         }
                         .font(.custom("Montserrat-Medium", size: 14))
+                        //.padding(.bottom)
                         
                     }
-                    .frame(width: UIScreen.main.bounds.width)
+                    .frame(width: UIScreen.main.bounds.width, height: geo.frame(in: .global).height * 0.62)
                     .foregroundColor(Color("Cultured"))
+                    .padding(.top, 70)
                 }
             }
             .background(Color("Charcoal"))

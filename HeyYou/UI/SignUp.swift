@@ -8,37 +8,36 @@
 import SwiftUI
 
 struct SignUp: View {
-    //@ObservedObject var textfieldModel = MainTextField.ViewModel()
+
     @State var checkFirstName = false
     @State var checkLastName = false
     @State var checkUsername = false
     
-//    var firstName = MainTextField(textfieldType: .properName, placeholder: "First Name", errorMessage: "Your name should be 3-13 characters long and have no special characters (!, @, #, $, %, ^, &, *).")
-//    var lastName = MainTextField(textfieldType: .properName, placeholder: "Last Name", errorMessage: "Your name should be 3-13 characters long and have no special characters (!, @, #, $, %, ^, &, *).")
-    
+
     var body: some View {
         ZStack(alignment: .top) {
             Color.black.opacity(0.7)
             VStack(alignment: .center) {
                 HStack {
                     Text("Sign Up")
-                        .font(.custom("Montserrat-Medium", size: 28))
-                        .foregroundColor(Color("Cultured"))
-                        .padding(.bottom, 20)
+                        .titleStyle()
                     Spacer()
                 }
                 
                 
                 MainTextField(textfieldType: .properName, placeholder: "First Name", errorMessage: "Your name should be 3-13 characters long and have no special characters (!, @, #, $, %, ^, &, *).", checkValidation: $checkFirstName)
+                    .padding(.bottom, UIScreen.main.bounds.height > 700 ? 0 : 15)
 
  
                 MainTextField(textfieldType: .properName, placeholder: "Last Name", errorMessage: "Your name should be 3-13 characters long and have no special characters (!, @, #, $, %, ^, &, *).", checkValidation: $checkLastName)
+                    .padding(.bottom, 15)
                 
                 HStack {
                     Text("Hey you, your username cannot be changed.")
                         .font(.custom("Montserrat-Medium", size: 13))
                         .foregroundColor(Color("Cultured"))
                         .tracking(1)
+                        .fixedSize(horizontal: true, vertical: false)
                     Spacer()
                 }
                 .padding(.bottom, 7)
