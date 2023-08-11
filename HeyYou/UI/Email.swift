@@ -11,6 +11,8 @@ struct Email: View {
     @State var checkEmail = true
     @State var checkPhone = true
     @State private var index = 0
+    var textfieldEmail = MainTextField(textfieldType: .email, placeholder: "Email", errorMessage: "Hey you, this email is already being used. Please enter another email.")
+    var textfieldPhone = MainTextField(textfieldType: .phone, placeholder: "Phone", errorMessage: "")
     
     var body: some View {
         ZStack(alignment: .top) {
@@ -57,14 +59,14 @@ struct Email: View {
                 
                 TabView(selection: $index) {
                     VStack(alignment: .center) {
-                        MainTextField(textfieldType: .email, placeholder: "Email", errorMessage: "Hey you, this email is already being used. Please enter another email.", checkValidation: $checkEmail)
+                        textfieldEmail
                             .padding()
                     }
                     .tag(0)
                     .keyboardType(.emailAddress)
                     
                     VStack(alignment: .center) {
-                        MainTextField(textfieldType: .phone, placeholder: "Phone", errorMessage: "", checkValidation: $checkPhone)
+                        textfieldPhone
                             .padding()
                     }
                     .tag(1)
@@ -73,7 +75,7 @@ struct Email: View {
                 .tabViewStyle(.page(indexDisplayMode: .never))
                 .frame(height: UIScreen.main.bounds.height * 0.2)
                 
-                MainButton(text: "Continue", isDisabled: checkEmail && checkPhone)
+                MainButton(text: "Continue", isDisabled: textfieldEmail.checkValidation && textfieldPhone.checkValidation)
             }
             .frame(width: UIScreen.main.bounds.width * 0.9)
         }

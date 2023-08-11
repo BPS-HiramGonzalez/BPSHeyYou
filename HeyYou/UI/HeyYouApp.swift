@@ -11,7 +11,7 @@ import SwiftUI
 struct HeyYouApp: App {
     var body: some Scene {
         WindowGroup {
-            SignUp()
+            ConfirmationCode()
         }
     }
 }

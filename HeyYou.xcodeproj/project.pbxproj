@@ -10,6 +10,8 @@
 		911ACF7B2A8433F200CCA2BB /* Email.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911ACF7A2A8433F200CCA2BB /* Email.swift */; };
 		911ACF7D2A84351400CCA2BB /* TitleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911ACF7C2A84351400CCA2BB /* TitleStyle.swift */; };
 		911ACF7F2A844CFB00CCA2BB /* Handle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911ACF7E2A844CFB00CCA2BB /* Handle.swift */; };
+		91BA600F2A86E417000C48E5 /* ConfirmationCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BA600E2A86E416000C48E5 /* ConfirmationCode.swift */; };
+		91BA60112A86ECBE000C48E5 /* LogIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BA60102A86ECBE000C48E5 /* LogIn.swift */; };
 		91C41F132A815A42005E87F0 /* HeyYouApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C41F122A815A42005E87F0 /* HeyYouApp.swift */; };
 		91C41F152A815A42005E87F0 /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C41F142A815A42005E87F0 /* Onboarding.swift */; };
 		91C41F172A815A43005E87F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91C41F162A815A43005E87F0 /* Assets.xcassets */; };
@@ -17,6 +19,8 @@
 		91C41F242A815B28005E87F0 /* MainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C41F232A815B28005E87F0 /* MainButton.swift */; };
 		91C41F292A8166DF005E87F0 /* MainTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C41F282A8166DF005E87F0 /* MainTextField.swift */; };
 		91C41F2D2A81A3C0005E87F0 /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C41F2C2A81A3C0005E87F0 /* SignUp.swift */; };
+		91D51B422A854B7100E52C1B /* KeyboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D51B412A854B7100E52C1B /* KeyboardManager.swift */; };
+		91D51B442A85560E00E52C1B /* Password.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D51B432A85560E00E52C1B /* Password.swift */; };
 		91F910722A829B47001C58F0 /* MainTextFieldViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F910712A829B47001C58F0 /* MainTextFieldViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -24,6 +28,8 @@
 		911ACF7A2A8433F200CCA2BB /* Email.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Email.swift; sourceTree = "<group>"; };
 		911ACF7C2A84351400CCA2BB /* TitleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleStyle.swift; sourceTree = "<group>"; };
 		911ACF7E2A844CFB00CCA2BB /* Handle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Handle.swift; sourceTree = "<group>"; };
+		91BA600E2A86E416000C48E5 /* ConfirmationCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationCode.swift; sourceTree = "<group>"; };
+		91BA60102A86ECBE000C48E5 /* LogIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogIn.swift; sourceTree = "<group>"; };
 		91C41F0F2A815A42005E87F0 /* HeyYou.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeyYou.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91C41F122A815A42005E87F0 /* HeyYouApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeyYouApp.swift; sourceTree = "<group>"; };
 		91C41F142A815A42005E87F0 /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
@@ -36,6 +42,8 @@
 		91C41F2A2A81791D005E87F0 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		91C41F2B2A819CAC005E87F0 /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
 		91C41F2C2A81A3C0005E87F0 /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
+		91D51B412A854B7100E52C1B /* KeyboardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardManager.swift; sourceTree = "<group>"; };
+		91D51B432A85560E00E52C1B /* Password.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Password.swift; sourceTree = "<group>"; };
 		91F910712A829B47001C58F0 /* MainTextFieldViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTextFieldViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -81,7 +89,6 @@
 				911ACF792A840E4100CCA2BB /* BPS_Common */,
 				91C41F272A81631D005E87F0 /* Info.plist */,
 				91C41F202A815ABE005E87F0 /* UI */,
-				91C41F122A815A42005E87F0 /* HeyYouApp.swift */,
 				91C41F162A815A43005E87F0 /* Assets.xcassets */,
 				91C41F182A815A43005E87F0 /* Preview Content */,
 			);
@@ -105,6 +112,11 @@
 				911ACF7A2A8433F200CCA2BB /* Email.swift */,
 				911ACF7C2A84351400CCA2BB /* TitleStyle.swift */,
 				911ACF7E2A844CFB00CCA2BB /* Handle.swift */,
+				91D51B412A854B7100E52C1B /* KeyboardManager.swift */,
+				91D51B432A85560E00E52C1B /* Password.swift */,
+				91C41F122A815A42005E87F0 /* HeyYouApp.swift */,
+				91BA600E2A86E416000C48E5 /* ConfirmationCode.swift */,
+				91BA60102A86ECBE000C48E5 /* LogIn.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -199,14 +211,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				91C41F292A8166DF005E87F0 /* MainTextField.swift in Sources */,
+				91BA600F2A86E417000C48E5 /* ConfirmationCode.swift in Sources */,
 				911ACF7B2A8433F200CCA2BB /* Email.swift in Sources */,
+				91D51B422A854B7100E52C1B /* KeyboardManager.swift in Sources */,
 				911ACF7F2A844CFB00CCA2BB /* Handle.swift in Sources */,
 				91C41F152A815A42005E87F0 /* Onboarding.swift in Sources */,
+				91D51B442A85560E00E52C1B /* Password.swift in Sources */,
 				91C41F132A815A42005E87F0 /* HeyYouApp.swift in Sources */,
 				91F910722A829B47001C58F0 /* MainTextFieldViewModel.swift in Sources */,
 				91C41F242A815B28005E87F0 /* MainButton.swift in Sources */,
 				911ACF7D2A84351400CCA2BB /* TitleStyle.swift in Sources */,
 				91C41F2D2A81A3C0005E87F0 /* SignUp.swift in Sources */,
+				91BA60112A86ECBE000C48E5 /* LogIn.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

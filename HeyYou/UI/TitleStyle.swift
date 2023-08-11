@@ -23,4 +23,12 @@ extension View {
     func titleStyle() -> some View {
         modifier(TitleStyle())
     }
+    
+    @ViewBuilder func `if`<Content: View>(_ condition: Bool, transform: (Self) -> Content) -> some View {
+        if condition {
+            transform(self)
+        } else {
+            self
+        }
+    }
 }

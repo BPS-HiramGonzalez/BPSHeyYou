@@ -10,7 +10,7 @@ import SwiftUI
 struct MainTextField: View {
     
     enum inputType {
-        case properName, username, handlename, email, phone
+        case properName, username, handlename, email, phone, password, code
     }
     
     let regex = [
@@ -18,43 +18,68 @@ struct MainTextField: View {
         "username" : "^[A-Za-z0-9\\.-_]{4,}$",
         "handlename" : "[A-Za-z0-9]{3,13}",
         "email" : "^([a-z0-9\\.-]{1,})@([a-z0-9-]{1,})\\.([a-z]{2,8})(\\.[a-z]{2,8})?$",
-        "phone" : "^[0-9]{10}$"
+        "phone" : "^[0-9]{10}$",
+        "password" : "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])[A-Za-z0-9!@#$%^&*]{8,}$",
+        "code" : "^[0-9]{6}$"
     ]
     
-    @State var text: String = ""
+    @State private(set) var text: String = ""
     
     let textfieldType: inputType
     let placeholder: String
     let errorMessage: String
-    @Binding var checkValidation: Bool
+    @State var checkValidation: Bool = true
     @State var isIncorrect: Bool = false
-    @FocusState var isFocused: Bool
+    //@FocusState var isFocused: Bool
     @State var isTyping = false
-    
+    @State var hideTextField = false
     @State var isTextEmpty = true
+    
     
     var body: some View {
         ZStack(alignment: .leading) {
             GeometryReader { geo in
-                VStack {
+                VStack(alignment: .leading) {
                     ZStack {
-                        TextField("", text: $text, prompt: Text(placeholder).foregroundColor(isIncorrect ? Color("Sunset") : Color("Cultured")))
-                            .padding()
-                            .foregroundColor(Color("Cultured"))
-                            .focused($isFocused)
-                            .onChange(of: text) { newValue in
-                                validateTextField(ofType: textfieldType, text: text)
-                                if text.isEmpty {
-                                    checkValidation = true
-                                }
-                                withAnimation {
-                                    isTextEmpty = newValue.isEmpty
-                                }
+                        ZStack {
+                            if textfieldType == .password {
+                                SecureField("", text: $text, prompt: Text(placeholder).foregroundColor(isIncorrect ? Color("Sunset") : Color("Cultured")))
+                                    .padding()
+                                    .foregroundColor(Color("Cultured"))
+                                    //.focused($isFocused)
+                                    .onChange(of: text) { newValue in
+                                        validateTextField(ofType: textfieldType, text: text)
+                                        if text.isEmpty {
+                                            checkValidation = true
+                                        }
+                                        withAnimation {
+                                            isTextEmpty = newValue.isEmpty
+                                        }
+                                    }
+                                    .opacity(hideTextField ? 1 : 0)
+                                    .frame(width: UIScreen.main.bounds.width * 0.81 * 0.8)
                             }
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 5)
-                                    .stroke(isIncorrect ? Color("Sunset") : Color("Cultured"), lineWidth: 2)
-                            )
+                            
+                            TextField("", text: $text, prompt: Text(placeholder).foregroundColor(isIncorrect ? Color("Sunset") : Color("Cultured")))
+                                .padding()
+                                .foregroundColor(Color("Cultured"))
+                                //.focused($isFocused)
+                                .onChange(of: text) { newValue in
+                                    validateTextField(ofType: textfieldType, text: text)
+                                    if text.isEmpty {
+                                        checkValidation = true
+                                    }
+                                    withAnimation {
+                                        isTextEmpty = newValue.isEmpty
+                                    }
+                                }
+                                .opacity(hideTextField ? 0 : 1)
+                                .frame(width: UIScreen.main.bounds.width * 0.81 * 0.8)
+                            
+                        }
+                        .offset(x: -UIScreen.main.bounds.width * 0.08)
+                        
+
                         
                         HStack {
                             if !isTextEmpty {
@@ -75,16 +100,25 @@ struct MainTextField: View {
                             
                             Spacer()
                             
-                            if isIncorrect {
+                            Button {
+                                text = ""
+                            } label: {
+                                Image("menuCloseSmall")
+                                    .padding(.trailing, textfieldType == .password ? 0 : 10)
+                            }
+                            
+                            if textfieldType == .password {
                                 Button {
-                                    text = ""
+                                    hideTextField.toggle()
                                 } label: {
-                                    Image("menuCloseSmall")
+                                    Image(hideTextField ? "editShow" : "editHide")
                                         .padding(.trailing, 10)
                                 }
                             }
                         }
                         .padding(.leading)
+                        
+
 
                     }
                     .frame(width: UIScreen.main.bounds.width * 0.81)
@@ -95,11 +129,10 @@ struct MainTextField: View {
                             }
                         }
                     }
-//                    .overlay(
-//                        RoundedRectangle(cornerRadius: 5)
-//                            .stroke(isIncorrect ? Color("Sunset") : Color.white, lineWidth: 2)
-//                    )
-                    
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 5)
+                            .stroke(isIncorrect ? Color("Sunset") : Color("Cultured"), lineWidth: 2)
+                    )
                     
                     if isIncorrect {
                         Text(errorMessage)
@@ -107,19 +140,25 @@ struct MainTextField: View {
                             .foregroundColor(Color("Sunset"))
                             .fixedSize(horizontal: false, vertical: true)
                             .frame(width: UIScreen.main.bounds.width * 0.77)
-                    }
-                }
+                            
+                    } // ZStack
+                } // VStack
                 
-                
-            }
-            .frame(height: isIncorrect ? UIScreen.main.bounds.height > 700 ? UIScreen.main.bounds.height * 0.105 : UIScreen.main.bounds.height * 0.15 : UIScreen.main.bounds.height * 0.09)
-        }
+            } // Geo
+            .frame(height: textfieldType == .password && isIncorrect ? UIScreen.main.bounds.height > 700 ? UIScreen.main.bounds.height * 0.12 : UIScreen.main.bounds.height * 0.17 : isIncorrect ? UIScreen.main.bounds.height > 700 ? UIScreen.main.bounds.height * 0.105 : UIScreen.main.bounds.height * 0.12 : UIScreen.main.bounds.height * 0.09)
+            
+        } // ZStack
         .onAppear {
             if text.isEmpty {
                 checkValidation = true
             }
+            if textfieldType == .password {
+                hideTextField = true
+            }
         }
-    }
+        .frame(width: UIScreen.main.bounds.width * 0.82)
+    } // View
+    
     
     func validateTextField(ofType type: inputType, text: String) {
         var selectedType: String {
@@ -134,6 +173,10 @@ struct MainTextField: View {
                 return "email"
             case .phone:
                 return "phone"
+            case .password:
+                return "password"
+            case .code:
+                return "code"
             }
         }
         
@@ -144,8 +187,9 @@ struct MainTextField: View {
     }
 }
 
-//struct MainTextField_Previews: PreviewProvider {
-//    static var previews: some View {
-//        MainTextField(textfieldType: .email, placeholder: "First Name", errorMessage: "Your name should be 3-13 characters long and have no special characters (!, @, #, $, %, ^, &, *).")
-//    }
-//}
+struct MainTextField_Previews: PreviewProvider {
+    @State static var test: Bool = true
+    static var previews: some View {
+        MainTextField(textfieldType: .password, placeholder: "Password", errorMessage: "Your password should be at least 8 characters long, contain a lowercase and an uppercase letter, a number and a special character (!, @, #, $, %, ^, &, *) at least.")
+    }
+}
