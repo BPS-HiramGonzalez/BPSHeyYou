@@ -23,14 +23,13 @@ struct MainTextField: View {
         "code" : "^[0-9]{6}$"
     ]
     
-    @State private(set) var text: String = ""
+    @State var text: String = ""
     
     let textfieldType: inputType
     let placeholder: String
     let errorMessage: String
     @State var checkValidation: Bool = true
     @State var isIncorrect: Bool = false
-    //@FocusState var isFocused: Bool
     @State var isTyping = false
     @State var hideTextField = false
     @State var isTextEmpty = true
@@ -84,17 +83,10 @@ struct MainTextField: View {
                         HStack {
                             if !isTextEmpty {
                                 Text(placeholder)
-                                    .font(.custom("Moontserrat-Regular", size: !isTextEmpty ? 13 : 18))
+                                    .font(.custom("Moontserrat-Regular", size: !isTextEmpty ? 15 : 18))
                                     .padding(.horizontal, !isTextEmpty ? 5 : 0)
-                                    .background(!text.isEmpty ? Color.black.opacity(1) : Color.black.opacity(0))
                                     .foregroundColor(isIncorrect ? Color("Sunset") : Color("Cultured"))
-                                //.position(x: geo.frame(in: .local).minX + 56.5, y: geo.frame(in: .local).midY)
-                                    .clipShape(RoundedRectangle(cornerRadius: 3))
-                                    .overlay(
-                                        RoundedRectangle(cornerRadius: 3)
-                                            .stroke(isIncorrect ? Color("Sunset") : Color("Cultured"), lineWidth: 1)
-                                    )
-                                    .offset(y: !isTextEmpty ? -28 : 0)
+                                    .offset(x: !isTextEmpty ? -7 : 0, y: !isTextEmpty ? -38 : 0)
                                     
                             }
                             
@@ -184,6 +176,10 @@ struct MainTextField: View {
         isIncorrect = !predicate.evaluate(with: text)
         checkValidation = isIncorrect
         print("validated: \(isIncorrect)")
+    }
+    
+    func getText() -> String {
+        return text
     }
 }
 

@@ -22,6 +22,9 @@
 		91D51B422A854B7100E52C1B /* KeyboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D51B412A854B7100E52C1B /* KeyboardManager.swift */; };
 		91D51B442A85560E00E52C1B /* Password.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D51B432A85560E00E52C1B /* Password.swift */; };
 		91F910722A829B47001C58F0 /* MainTextFieldViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F910712A829B47001C58F0 /* MainTextFieldViewModel.swift */; };
+		91FB5AA52A8A7F58008A72B7 /* ForgotUN-Email.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FB5AA42A8A7F58008A72B7 /* ForgotUN-Email.swift */; };
+		91FB5AA72A8A967E008A72B7 /* EnterCode_Email.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FB5AA62A8A967E008A72B7 /* EnterCode_Email.swift */; };
+		91FB5AA92A8A9F74008A72B7 /* AccountFound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FB5AA82A8A9F74008A72B7 /* AccountFound.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +48,9 @@
 		91D51B412A854B7100E52C1B /* KeyboardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardManager.swift; sourceTree = "<group>"; };
 		91D51B432A85560E00E52C1B /* Password.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Password.swift; sourceTree = "<group>"; };
 		91F910712A829B47001C58F0 /* MainTextFieldViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTextFieldViewModel.swift; sourceTree = "<group>"; };
+		91FB5AA42A8A7F58008A72B7 /* ForgotUN-Email.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ForgotUN-Email.swift"; sourceTree = "<group>"; };
+		91FB5AA62A8A967E008A72B7 /* EnterCode_Email.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterCode_Email.swift; sourceTree = "<group>"; };
+		91FB5AA82A8A9F74008A72B7 /* AccountFound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountFound.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +123,9 @@
 				91C41F122A815A42005E87F0 /* HeyYouApp.swift */,
 				91BA600E2A86E416000C48E5 /* ConfirmationCode.swift */,
 				91BA60102A86ECBE000C48E5 /* LogIn.swift */,
+				91FB5AA42A8A7F58008A72B7 /* ForgotUN-Email.swift */,
+				91FB5AA62A8A967E008A72B7 /* EnterCode_Email.swift */,
+				91FB5AA82A8A9F74008A72B7 /* AccountFound.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -210,10 +219,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91FB5AA52A8A7F58008A72B7 /* ForgotUN-Email.swift in Sources */,
 				91C41F292A8166DF005E87F0 /* MainTextField.swift in Sources */,
 				91BA600F2A86E417000C48E5 /* ConfirmationCode.swift in Sources */,
+				91FB5AA72A8A967E008A72B7 /* EnterCode_Email.swift in Sources */,
 				911ACF7B2A8433F200CCA2BB /* Email.swift in Sources */,
 				91D51B422A854B7100E52C1B /* KeyboardManager.swift in Sources */,
+				91FB5AA92A8A9F74008A72B7 /* AccountFound.swift in Sources */,
 				911ACF7F2A844CFB00CCA2BB /* Handle.swift in Sources */,
 				91C41F152A815A42005E87F0 /* Onboarding.swift in Sources */,
 				91D51B442A85560E00E52C1B /* Password.swift in Sources */,

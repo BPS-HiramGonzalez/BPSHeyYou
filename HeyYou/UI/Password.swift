@@ -9,8 +9,8 @@ import SwiftUI
 
 struct Password: View {
     @State var textfield1: MainTextField
-//    var textfield2 = MainTextField(textfieldType: .password, placeholder: "Confirm Password", errorMessage: "Hey you! Passwords do not match.")
-    @State var textfield2: MainTextField
+    @State var textfield2 = MainTextField(textfieldType: .password, placeholder: "Confirm Password", errorMessage: "Hey you! Passwords do not match.")
+    //@State var textfield2: MainTextField
     
     //@State var button: MainButton
     
@@ -50,7 +50,7 @@ struct Password: View {
                         
                         
                         
-//                        MainButton(text: "Complete", isDisabled: (textfield1.checkValidation || textfield2.checkValidation) || textfield1.text != textfield2.text)
+                        MainButton(text: "Complete", isDisabled: "" == textfield2.getText())
                     }
                 }
                 
@@ -62,7 +62,7 @@ struct Password: View {
     
     init() {
         _textfield1 = State(initialValue: MainTextField(textfieldType: .password, placeholder: "Password", errorMessage: "Your password should be at least 8 characters long, contain a lowercase and an uppercase letter, a number and a special character (!, @, #, $, %, ^, &, *) at least."))
-        _textfield2 = State(initialValue: MainTextField(textfieldType: .password, placeholder: "Confirm Password", errorMessage: "Hey you! Passwords do not match."))
+//        _textfield2 = State(initialValue: MainTextField(textfieldType: .password, placeholder: "Confirm Password", errorMessage: "Hey you! Passwords do not match."))
 //        _button = State(initialValue: MainButton(text: "Complete", isDisabled: (textfield1.checkValidation || textfield2.checkValidation) || textfield1.text != textfield2.text))
     }
 }

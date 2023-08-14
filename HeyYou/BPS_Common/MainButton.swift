@@ -15,17 +15,19 @@ struct MainButton: View {
             Button {
                 
             } label: {
-                Text(text)
+                Label(text, systemImage: "")
                     .font(.custom("Montserrat-Medium", size: 20))
                     .tracking(1.8)
                     .foregroundColor(Color("Cultured"))
+                    .padding(.horizontal)
                     .overlay(
                         RoundedRectangle(cornerRadius: 20)
                             .stroke(isDisabled ? Color("Slate_Gray") : Color("Streetlight"), lineWidth: 3)
-                            .frame(width: UIScreen.main.bounds.width * 0.65, height: UIScreen.main.bounds.width * 0.12)
+                            .frame(height: UIScreen.main.bounds.width * 0.12)
+                            //
                     )
-                    .frame(width: UIScreen.main.bounds.width * 0.65, height: UIScreen.main.bounds.width * 0.12)
-                    .padding(.horizontal, 50)
+                    //.frame(width: UIScreen.main.bounds.width * 0.65, height: UIScreen.main.bounds.width * 0.12)
+                    //.padding(.horizontal, 50)
             }
             .disabled(isDisabled)
     }

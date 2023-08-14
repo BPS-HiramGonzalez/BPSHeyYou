@@ -11,7 +11,7 @@ import SwiftUI
 struct HeyYouApp: App {
     var body: some Scene {
         WindowGroup {
-            ConfirmationCode()
+            EnterCode_Email(codeType: .email, userInput: "hello@bps.com")
         }
     }
 }
